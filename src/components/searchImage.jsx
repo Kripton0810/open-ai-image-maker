@@ -8,6 +8,7 @@ async function imageSearchHandeler(message) {
       message: message,
       size: "lg",
       numberOfImages: 4,
+      
     })
     .then((res) => {
       console.log(res.data);
