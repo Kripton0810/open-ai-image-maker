@@ -1,5 +1,5 @@
-import React from "react";
-import { TypeAnimation } from "react-type-animation";
+import React from "react"
+import { TypeAnimation } from "react-type-animation"
 
 export default function Typer() {
   return (
@@ -7,7 +7,8 @@ export default function Typer() {
       <div
         style={{
           fontFamily: "Book Antiqua",
-          fontSize: "2rem",
+          fontSize: "5rem",
+          color: "white",
         }}
       >
         <TypeAnimation
@@ -25,5 +26,5 @@ export default function Typer() {
         />
       </div>
     </>
-  );
+  )
 }
