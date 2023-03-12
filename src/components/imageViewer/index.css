@@ -3,9 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 .main-swiper-wrapper {
     font-family: "Patrick Hand", cursive;
-    background: url('../../images/backroll.jpg');
-    background-position: center;
-    background-size: cover;
   }
   
   .swiper-container {
