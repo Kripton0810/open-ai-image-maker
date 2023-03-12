@@ -9,7 +9,7 @@ export const loadingApiSlice = createSlice({
   initialState,
   reducers: {
     isFirstSetter: (state) => {
-      if (state.isFirst == false) {
+      if (state.isFirst === false) {
         state.isFirst = true
       }
     },

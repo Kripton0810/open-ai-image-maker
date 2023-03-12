@@ -30,11 +30,11 @@ async function imageSearchHandeler(message, size, items) {
       dispatch(isLoadingSetterOff())
     })
     .catch((e) => {
-      if (e.response.data.message && e.response.data.isArray == true) {
+      if (e.response.data.message && e.response.data.isArray === true) {
         e.response.data.message.forEach((element) => {
           notifyError(element)
         })
-      } else if (e.response.data.message && e.response.data.isArray == false) {
+      } else if (e.response.data.message && e.response.data.isArray === false) {
         notifyError(e.response.data.message)
       } else {
         notifyError("System Error")
@@ -75,7 +75,7 @@ export default function SearchImage() {
                 id="radio1"
                 name="size"
                 className="selector-item_radio"
-                checked={size == "sm"}
+                checked={size === "sm"}
                 onChange={() => setSize("sm")}
               />
               <label htmlFor="radio1" className="selector-item_label">
@@ -88,7 +88,7 @@ export default function SearchImage() {
                 id="radio2"
                 name="size"
                 className="selector-item_radio"
-                checked={size == "m"}
+                checked={size === "m"}
                 onChange={() => setSize("m")}
               />
               <label htmlFor="radio2" className="selector-item_label">
@@ -101,7 +101,7 @@ export default function SearchImage() {
                 id="radio3"
                 name="size"
                 className="selector-item_radio"
-                checked={size == "lg"}
+                checked={size === "lg"}
                 onChange={() => setSize("lg")}
               />
               <label htmlFor="radio3" className="selector-item_label">
@@ -114,7 +114,7 @@ export default function SearchImage() {
           <span
             className="minus"
             onClick={() => {
-              if (items == 1) {
+              if (items === 1) {
                 toast.error("Minimum 1 image is required")
                 return
               }
@@ -127,7 +127,7 @@ export default function SearchImage() {
           <span
             className="plus"
             onClick={() => {
-              if (items == 10) {
+              if (items === 10) {
                 toast.error("Maximum 10 images is possible")
                 return
               }

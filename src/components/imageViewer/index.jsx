@@ -42,7 +42,7 @@ function ImageViewer() {
             </Swiper>
           ) : (
             <div className="flex justify-center items-center py-52">
-              {isLoading ? <img src={LoadingGif} /> : <></>}
+              {isLoading ? <img src={LoadingGif} alt="Loading..." /> : <></>}
             </div>
           )}
         </div>
