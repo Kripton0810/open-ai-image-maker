@@ -14,15 +14,16 @@ html,body{
 }
 .container{
     position:relative;
-    width:100%;
+    width:50%;
     height:100%;
+    margin: 0px 20px;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 .selector{
     position:relative;
-    width:60%;
+    width:100%;
     background-color:var(--smoke-white);
     height:80px;
     display:flex;
@@ -67,10 +68,10 @@ html,body{
 	}
 }
 .wrapper{
-    top: 50px;
     position: relative;
-    height: 120px;
-    min-width: 380px;
+    height: 100%;
+    width: 30%;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,16 +80,69 @@ html,body{
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   }
   .wrapper span{
-    width: 100%;
+    width: 50%;
     text-align: center;
-    font-size: 55px;
+    font-size: 3rem;
     font-weight: 600;
     cursor: pointer;
     user-select: none;
   }
   .wrapper span.num{
-    font-size: 50px;
+    font-size: 3rem;
     border-right: 2px solid rgba(0,0,0,0.2);
     border-left: 2px solid rgba(0,0,0,0.2);
     pointer-events: none;
   }  
+  .cls-submit{
+    width: 20%;
+    margin: 0px 20px;
+  }
+  .cls-submit button{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background: #111;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.5s;
+  }
+  .cls-submit button:hover{
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+  }
+  .cls-submit button:before{
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 50px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .cls-submit button:hover:before{
+    opacity: 1;
+    z-index: -1;
+  }
+  .cls-submit button:hover{
+    z-index: 1;
+    animation: glow 8s linear infinite;
+  }
+  @keyframes glow {
+    0%{
+      background-position: 0%;
+    }
+    100%{
+      background-position: 400%;
+    }
+  }

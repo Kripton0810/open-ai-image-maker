@@ -5,6 +5,9 @@ import "./index.css"
 import { useDispatch } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+
 import { apiErrorSetter, apiSetter } from "../../reducers/imageApi.reducer"
 import {
   isFirstSetter,
@@ -53,7 +56,11 @@ export default function SearchImage() {
   const [items, setItemsCount] = useState(1)
   function formHandler(event) {
     event.preventDefault()
-    imageSearchHandeler(search, size, items)
+    if (search.trim().length >= 3) {
+      imageSearchHandeler(search, size, items)
+    } else {
+      toast.error("Enter at least 3 characters ")
+    }
   }
   return (
     <>
@@ -67,75 +74,87 @@ export default function SearchImage() {
           <button type="reset" onClick={() => setSearch("")}></button>
         </div>
         <br />
-        <div className="container">
-          <div className="selector">
-            <div className="selecotr-item">
-              <input
-                type="radio"
-                id="radio1"
-                name="size"
-                className="selector-item_radio"
-                checked={size === "sm"}
-                onChange={() => setSize("sm")}
-              />
-              <label htmlFor="radio1" className="selector-item_label">
-                Small
-              </label>
-            </div>
-            <div className="selecotr-item">
-              <input
-                type="radio"
-                id="radio2"
-                name="size"
-                className="selector-item_radio"
-                checked={size === "m"}
-                onChange={() => setSize("m")}
-              />
-              <label htmlFor="radio2" className="selector-item_label">
-                Medium
-              </label>
-            </div>
-            <div className="selecotr-item">
-              <input
-                type="radio"
-                id="radio3"
-                name="size"
-                className="selector-item_radio"
-                checked={size === "lg"}
-                onChange={() => setSize("lg")}
-              />
-              <label htmlFor="radio3" className="selector-item_label">
-                Large
-              </label>
+        <div className="flex justify-between items-center relative top-5">
+          <div className="container">
+            <div className="selector">
+              <div className="selecotr-item">
+                <input
+                  type="radio"
+                  id="radio1"
+                  name="size"
+                  className="selector-item_radio"
+                  checked={size === "sm"}
+                  onChange={() => setSize("sm")}
+                />
+                <label htmlFor="radio1" className="selector-item_label">
+                  Small
+                </label>
+              </div>
+              <div className="selecotr-item">
+                <input
+                  type="radio"
+                  id="radio2"
+                  name="size"
+                  className="selector-item_radio"
+                  checked={size === "m"}
+                  onChange={() => setSize("m")}
+                />
+                <label htmlFor="radio2" className="selector-item_label">
+                  Medium
+                </label>
+              </div>
+              <div className="selecotr-item">
+                <input
+                  type="radio"
+                  id="radio3"
+                  name="size"
+                  className="selector-item_radio"
+                  checked={size === "lg"}
+                  onChange={() => setSize("lg")}
+                />
+                <label htmlFor="radio3" className="selector-item_label">
+                  Large
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="wrapper">
-          <span
-            className="minus"
-            onClick={() => {
-              if (items === 1) {
-                toast.error("Minimum 1 image is required")
-                return
-              }
-              setItemsCount(items - 1)
-            }}
-          >
-            -
-          </span>
-          <span className="num">{items < 10 ? "0" + items : items}</span>
-          <span
-            className="plus"
-            onClick={() => {
-              if (items === 10) {
-                toast.error("Maximum 10 images is possible")
-                return
-              }
-              setItemsCount(items + 1)
-            }}
-          >
-            +
-          </span>
+          <div className="wrapper">
+            <span
+              className="minus"
+              onClick={() => {
+                if (items === 1) {
+                  toast.error("Minimum 1 image is required")
+                  return
+                }
+                setItemsCount(items - 1)
+              }}
+            >
+              -
+            </span>
+            <span className="num">{items < 10 ? "0" + items : items}</span>
+            <span
+              className="plus"
+              onClick={() => {
+                if (items === 10) {
+                  toast.error("Maximum 10 images is possible")
+                  return
+                }
+                setItemsCount(items + 1)
+              }}
+            >
+              +
+            </span>
+          </div>
+          <div className="cls-submit">
+            <button type="submit">
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                color="white"
+                className="mx-4"
+              />
+              Search
+            </button>
+          </div>
         </div>
       </form>
       <ToastContainer />

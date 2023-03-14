@@ -15,7 +15,7 @@ function ImageViewer() {
   const isLoading = useSelector((state) => state.isFirstandLoading.isLoading)
 
   return (
-    <div className="top-20 relative">
+    <div className="relative">
       <section id="threeDCarasoul" className="main-swiper-wrapper p-0">
         <div className="w-full h-full">
           {dataFromApi ? (

@@ -9,9 +9,12 @@ export default function Typer() {
           fontFamily: "Book Antiqua",
           fontSize: "5rem",
           color: "white",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
         <TypeAnimation
+          className="m-auto"
           sequence={[
             "Search your Imagination",
             1000,
